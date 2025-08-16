@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-cloud-sun"></i> Weather Dashboard</h1>
+            <div class="search-container">
+                <input type="text" id="citySearch" placeholder="Search for a city..." class="search-input">
+                <button id="searchBtn" class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button id="locationBtn" class="location-btn" title="Auto-detect my location">
+                    <i class="fas fa-location-arrow"></i> Auto-detect Location
+                </button>
+            </div>
+        </header>
+
+        <!-- Loading State -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Fetching weather data...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="error" class="error hidden">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p id="errorMessage">City not found. Please try again.</p>
+        </div>
+
+        <!-- Current Weather Section -->
+        <section id="currentWeather" class="weather-section hidden">
+            <h2>Current Weather</h2>
+            <div class="current-weather-grid">
+                <div class="weather-card main-weather">
+                    <div class="weather-icon">
+                        <i id="mainWeatherIcon" class="fas fa-sun"></i>
+                    </div>
+                    <div class="weather-info">
+                        <h3 id="cityName">City Name</h3>
+                        <p id="weatherDescription">Weather Description</p>
+                        <div class="temperature">
+                            <span id="temperature" class="temp-value">--</span>
+                            <span class="temp-unit">°C</span>
+                        </div>
+                        <div class="weather-details">
+                            <div class="detail">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>Feels like: <span id="feelsLike">--</span>°C</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-tint"></i>
+                                <span>Humidity: <span id="humidity">--</span>%</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-wind"></i>
+                                <span>Wind: <span id="windSpeed">--</span> km/h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3-Day Forecast Section -->
+        <section id="forecast" class="forecast-section hidden">
+            <h2>3-Day Forecast</h2>
+            <div class="forecast-grid" id="forecastGrid">
+                <!-- Forecast cards will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Multiple Cities Section -->
+        <section id="multipleCities" class="cities-section hidden">
+            <h2>Saved Cities</h2>
+            <div class="cities-grid" id="citiesGrid">
+                <!-- City cards will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Add City Button -->
+        <div class="add-city-container">
+            <button id="addCityBtn" class="add-city-btn">
+                <i class="fas fa-plus"></i>
+                Add City
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
